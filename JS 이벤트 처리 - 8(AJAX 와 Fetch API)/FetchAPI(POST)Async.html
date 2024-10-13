@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="fetchTodo1()">POST 요청</button>
+
+    <script>
+      async function fetchTodo1() {
+        try {
+          let data = {
+            userId: 1,
+            title: "새로운 할 일",
+            completed: false
+          };
+          
+          let promiseData = await fetch(
+            "http://localhost:8080/test123", // URL 수정 (localhsot -> localhost)
+            {
+              method: 'POST', // POST 요청으로 변경
+              headers: {
+                'Content-type': 'application/json', // 요청의 Content-type 설정
+              },
+              body: JSON.stringify(data), // JSON 데이터를 문자열로 변환하여 전송
+            }
+          );
+          
+          console.log('POST 요청 및 데이터 전송');
+          let todo = await promiseData.json(); // 응답 JSON 파싱
+          console.log(todo);
+        } catch (error) {
+          console.log("error: " + error);
+        }
+      }
+    </script>
+  </body>
+</html>
