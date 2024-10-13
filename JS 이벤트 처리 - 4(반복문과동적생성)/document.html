@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: brown;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            background-color: aquamarine;
+            color: white;
+            margin: 20px;
+            border: none;
+            font-size: 1em;
+            padding: 8px;
+        }
+
+        .container {
+            display: flex;
+            /* 요소들이 컨테이너 영역을 벗어나면 다음 줄로 자연스럽게 이동합니다 */
+            flex-wrap: wrap;
+            width: 80%;
+        }
+
+        .card {
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            /* 최소 크기 지정 */
+            min-width: calc(33.33% - 20px);
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>반복문을 활용한 리스트 생성</h1>
+    <button onclick="render()">Render</button>
+
+    <div class="container" id="container">
+        <!-- 자바스크립트로 요소 동적 생성 -->
+    </div>
+
+    <script>
+        let count = 0;  // 카드의 고유한 id를 생성하기 위한 변수 
+
+        function render() {
+            // 카드가 추가될 컨텐이너 요소를 가져 옵니다. 
+            const container = document.getElementById("container");
+            // 동적으로 생성한 CARD 요소를 container 에 자식으로 넣어주면 된다. 
+            
+            for(let i = 1; i <= 3; i++) {
+                count++;
+                const card = createCard(count);
+                container.append(card);
+            }
+           
+        }
+
+        function createCard(cardId) {
+            // 함수를 통해서 HTML 요소를 생성하는거 연습 
+            const card = document.createElement('div');
+            card.className = "card";
+            card.id = "card-" + cardId;
+
+            // 백틱을 활용해서 요소를 만드는 방법 연습 
+            card.innerHTML = `
+                <h2>Title ${cardId}</h2>
+                <p>content ${cardId}</p>
+                <button onclick="deleteCard(${cardId})">Delete</button>
+            `;
+            return card;
+        }
+
+        function deleteCard(cardId) {
+
+            // 요소를 삭제하는 방법은 
+            // element.remove() 만 호출하면 된다. 
+            // 1. 해당하는 요소를 가져온다. 
+            const card = document.getElementById("card-" + cardId);
+            if(card != null) {
+                card.remove();     
+            }
+        }
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+

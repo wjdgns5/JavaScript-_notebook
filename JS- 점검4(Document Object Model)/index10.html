@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index10.html</title>
+</head>
+<body>
+    <h2>index10.html 파일 입니다.</h2>
+    <h1 id="title">Hello, World!</h1>
+    <button id="changeButton">Change Text</button>
+
+    <script>
+        let changeBtn = document.getElementById("changeButton"); // 버튼 획득
+        console.log(typeof changeBtn);
+        console.log(changeBtn);
+
+        let clickEvent = function() {
+            let titleElement =document.getElementById("title"); // h2 획득
+            titleElement.textContent = "안녕 스크립트야~";
+            titleElement.style.color = "blue";
+        }
+
+        changeBtn.addEventListener('click', function() {
+            clickEvent();
+        });
+
+    </script>
+    
+</body>
+</html>

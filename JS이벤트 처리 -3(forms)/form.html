@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style: none;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        label  {
+            margin-right: 20px;
+            margin-bottom: 4px;
+        }
+        .flex--container {
+            display: flex;
+            justify-content: center;
+            margin: 100px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="flex--container" >
+        <form action="" onsubmit="return false;">
+            <fieldset>
+                <legend>배송지입력</legend>
+                <ul>
+                    <li>
+                        <label for="userName1">이름 : </label>
+                        <input type="text" class="input--box" name="name" id="userName1" value="홍길동">
+                    </li>
+                    <li>
+                        <label for="tel1">연락처 : </label>
+                        <input type="text" class="input--box" name="tel" id="tel1" value="010-1234-1234">
+                    </li>
+                </ul>
+                <button type="button" onclick="check()">check</button>
+            </fieldset>
+        </form>
+
+        <br>
+
+        <form action="https://www.naver.com" onsubmit="return false;">
+            <fieldset>
+                <legend>배송지입력2</legend>
+                <ul>
+                    <li>
+                        <label for="userName2">이름 : </label>
+                        <input type="text" class="input--box" name="name" value="">
+                    </li>
+                    <li>
+                        <label for="tel2">연락처 : </label>
+                        <input type="text" class="input--box" name="tel" value="">
+                    </li>
+                </ul>
+                <button type="button" onclick="send()">send</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+
+        function check() {
+            let form1 = window.document.forms[0]; 
+            let form2 = window.document.forms[1]; 
+            console.log(form1); // 배송지입력 1
+            console.log(form2); // 배송지입력 2
+
+            form2.elements['name'].value = form1.elements['name'].value;
+            console.log(form1.elements['name'].value)
+
+            form2.elements['tel'].value = form1.elements['tel1'].value;
+            console.log(form2.elements['tel'].value)
+        }
+
+        function send() {
+            if(validationFrom() ) {
+                window.document.forms[1].submit();
+            }
+        }
+
+            function validationFrom() {
+
+                let form2 = window.document.forms[1];
+                let name = form2.elements['name'].value;
+                let tel = form2.elements['tel'].value;
+
+                let isOk = true;
+                console.log(typeof name);
+                console.log(typeof tel);
+
+                if(!name) {
+                    alert('이름을 입력하세요');
+                    isOk = false;
+                    return;
+                }
+
+                if(!tel) {
+                    alert('전화번호를 입력하세요');
+                    isOk = false;
+                    return;
+                }
+
+                if(tel.length < 3) {
+                    alert('올바른 연락처를 입력하세요');
+                    isOk = false;
+                    return;
+                }
+                return isOk;
+            }
+        
+    </script>
+    
+</body>
+</html>

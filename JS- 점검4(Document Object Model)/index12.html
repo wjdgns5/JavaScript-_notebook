@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index12.html</title>
+
+    <style>
+        .flex--container {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>index12.html 파일 입니다.</h2>
+    
+    <div class="flex--container">
+
+        <img id="toggleImage" src="image1.png" alt="">
+        <button onclick="toggleImage2()">이미지토글</button>
+    </div>
+
+    <script>
+        let isImage1 = true;
+        function toggleImage2() {
+            const imgElement = document.getElementById("toggleImage"); // 이미지 쪽 id 획득
+            if(isImage1) {
+                imgElement.src = "image2.png" // true 이면 노란색 
+            } else {
+                imgElement.src = "image1.png"; // false 이면 초록색
+            }
+            isImage1 = !isImage1; // true 이면 --> false로 변경 , flase 이면 --> true로 변경
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            margin: 8px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>요소를 동적으로 추가하기</h1>        
+    <button onclick="addItem()">아이템 추가</button>
+    <br>
+    <ul id="myList">
+        <li>아이템 1</li>
+    </ul>
+
+    <script>
+        let count = 1; 
+        function addItem() {
+            let newItem = document.createElement("li");
+            // newItem.textContent = `<div> 새로운 아이템 ${++count} </div>`;
+            newItem.innerHTML = `<div> 새로운 아이템 ${++count} </div>`;
+            let ulList = document.querySelector("#myList");
+            ulList.append(newItem);
+
+            // window.document.body.append(newItem);
+
+            // textContent 와 innerHTML 차이점은 뭘까? 
+        }
+
+    </script>
+
+    
+</body>
+</html>

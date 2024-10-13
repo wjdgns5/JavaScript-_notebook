@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="myList">
+        <li><button>버튼 1</button></li>
+        <li><button>버튼 2</button></li>
+        <li><button>버튼 3</button></li>
+    </ul>
+
+    <script>
+
+        let btn = window.document.querySelectorAll('#myList button');
+        console.log('btn', btn);
+
+        btn.forEach((button) => {
+            button.addEventListener('click', function() {
+                alert('버튼 클릭 확인');
+            });
+        });
+
+    </script>
+    
+</body>
+</html>

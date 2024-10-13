@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index11.html</title>
+</head>
+<body>
+
+    <h2>index11.html 파일 입니다.</h2>
+
+    <div id ="myDiv">아이디로 접근</div>
+    <div class="myClass">정적 렌더링 1</div>
+    <div class="myClass">정적 렌더링 2</div>
+
+    <p>태그 이름으로 접근 1</p>
+    <p>태그 이름으로 접근 2</p>
+
+    <script>
+        let byMyDiv = document.getElementById("myDiv");
+        console.log(byMyDiv.textContent);
+
+        let byClassNameElements = document.getElementsByClassName("myClass");
+        console.log(typeof byClassNameElements);
+
+        let class1 = byClassNameElements[0].textContent = "동적 렌더링 1";
+        let class2 = byClassNameElements[1].textContent = "동적 렌더링 2";
+
+        console.log(class1)
+        console.log(class2)
+
+        let byQuerySelector = document.querySelector(".myClass");
+        console.log('-----------');
+        console.log(byQuerySelector);
+
+        let byQuerySelectorAll = document.querySelectorAll(".myClass");
+        console.log("===========");
+        console.log(typeof byQuerySelectorAll);
+        console.log(byQuerySelectorAll);
+
+        byQuerySelectorAll[1].textContent = "안녕 querySelectorAll"
+        byQuerySelectorAll[1].style.color = "blue";
+
+    </script>
+    
+</body>
+</html>

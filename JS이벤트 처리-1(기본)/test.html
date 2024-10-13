@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+  
+        li {
+          background-color: #f9f9f9;
+          margin: 8px 0;
+          padding: 10px;
+          border: 1px solid #ccc;
+        }
+      </style>
+
+</head>
+<body>
+
+    <h1>요소를 동적으로 삭제하기 테스트</h1>
+    <br />
+    <ul id="myList">
+      <li>아이템 1</li>
+      <li>아이템 2</li>
+      <li>아이템 3</li>
+    </ul>
+
+    <button id="add">추가</button>
+    <button id="delete">삭제</button>
+
+    <script>
+        // 버튼에 이벤트 리스너 추가
+        document.getElementById("add").onclick = addItem;
+        document.getElementById("delete").onclick = removeItem;
+
+        let count = 3;
+
+        function addItem() {
+            
+            let ul = window.document.getElementById("myList");
+            let newItem = window.document.createElement("li");
+            newItem.innerHTML = `아이템 ${++count}`;
+            ul.appendChild(newItem);
+        }
+
+        function removeItem() {
+
+            let ul = window.document.getElementById("myList");
+            let lastItem = ul.lastElementChild;
+            if(lastItem) {
+                ul.removeChild(lastItem);
+                count --;
+            } else {
+                alert('삭제할 아이템이 없습니다.')
+            }
+        }
+    </script>
+    
+</body>
+</html>

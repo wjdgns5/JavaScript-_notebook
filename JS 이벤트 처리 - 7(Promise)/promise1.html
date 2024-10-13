@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="orderCoffee('아메리카노')">Promise Callback Test</button>
+    <button onclick="runOrderCoffee1('아메리카노')">Promise Callback Test</button>
+
+    <script>
+
+       async function orderCoffee(order) {
+        console .log("start ......................");
+            try {
+                const result = await runOrderCoffee1(order);
+                console.log(result);
+            } catch(error) {
+                console.log(error);
+            }
+            console .log("end ......................");
+        }
+
+
+        function runOrderCoffee1(order) {
+
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    if(order === '아메리카노') {
+                        resolve(`${order}(이)가 나왔습니다.`);
+                     //   console.log(`${order}(이)가 나왔습니다.`);
+                        alert(`${order}(이)가 나왔습니다.`);
+                    } else if(order === "라떼") {
+                        resolve(`${order}(이)가 나왔습니다.`);
+                        console.log(`${order}(이)가 나왔습니다.`);
+                        alert(`${order}(이)가 나왔습니다.`);
+                    } else {
+                        reject(`죄송합니다. ${order}의 재료가 모두 소진되었습니다.`);
+                        console.log(`죄송합니다. ${order}의 재료가 모두 소진되었습니다.`);
+                        alert(`죄송합니다. ${order}의 재료가 모두 소진되었습니다.`);
+                    }
+                }, 2000);
+            });
+        }
+
+     
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+body {
+  margin: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  background-color: #f9f9f9;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

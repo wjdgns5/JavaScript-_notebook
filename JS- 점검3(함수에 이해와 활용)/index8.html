@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index8.html</title>
+</head>
+<body>
+
+    <h1>index8.html 파일 입니다.</h1>
+
+    <script>
+
+        const currentTime = function() {
+            const now = new Date();
+            return now.toLocaleTimeString();
+        };
+
+        console.log(currentTime);
+        console.log(currentTime());
+
+        const time = currentTime();
+        console.log('-------------');
+        console.log(time);
+
+        const add = function(x, y) {
+            return x + y;
+        }
+
+        console.log(add(3, 5));
+
+        const result = add(10, 20);
+        console.log(result);
+
+    </script>
+    
+</body>
+</html>

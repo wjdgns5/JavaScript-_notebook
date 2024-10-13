@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index6.html</title>
+</head>
+<body>
+
+    <h1>index6.html 파일 입니다.</h1>
+
+    <script>
+
+        const numbers = new Array(1, 2, 3, 4, 5);
+
+        Object.freeze(numbers); // freeze : 데이터 추가, 삭제 못함 (데이터 변경이 필요하지 않는 경우)
+        console.log(numbers[0]);
+
+        numbers[0] = 10000;
+        console.log(numbers[0]); // 데이터 값 변경 없음
+
+        delete numbers[0];
+        console.log(numbers[0]); // 데이터 삭제 안됨
+
+       // numbers.push(15);
+       // console.log(numbers);
+
+        const fruits = ['apple', 'banana', 'cherry'];
+        console.log(fruits[0]);
+        console.log(fruits[1]);
+        console.log(fruits[2]);
+
+        console.log(fruits.length);
+
+       fruits.push('peach');
+       console.log(fruits);
+       console.log("-------------");
+       fruits.pop();
+       console.log(fruits);
+
+       for(let i=0; i<numbers.length; i++) {
+        console.log(numbers[i]);
+       }
+
+       console.log('----------------');
+
+       numbers.forEach(function(num) {
+        console.log(num);
+       });
+
+       for(let i=0; i<fruits.length; i++) {
+        console.log(fruits[i]);
+       }
+
+       fruits.forEach(function(fruit) {
+        console.log(fruit);
+       });
+
+    </script>
+    
+</body>
+</html>

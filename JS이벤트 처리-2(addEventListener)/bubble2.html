@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     <!-- 이벤트 전파 중단하기  -->
+     <div id="parent">
+        <button id="child">Click me!</button>   
+    </div>
+
+    <script>
+
+        let pa = window.document.getElementById('parent');
+        pa.addEventListener('click', function() {
+            alert('Parent Div Clicked! ');
+        });
+
+        window.document.getElementById('child').addEventListener('click', (event) => {
+            console.log('event', event);
+            alert('Button Clicked !');
+            event.stopPropagation();
+        });
+
+    </script>
+
+</body>
+</html>

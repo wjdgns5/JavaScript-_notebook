@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="runOrderCoffee2('소주')"> Promise Callback Test </button>
+
+    <script>
+        // 커피를 주문하고 만드는 가상의 비동기 함수 선언 
+        // Promise 타입을 반환한다(객체를 반환)
+        function orderCoffee(order) {
+            return new Promise( function(resolve, reject) {
+                // 기존 제공하는 setTimeout API 활용 
+                setTimeout(function() {
+                    if(order === "아메리카노" ) {
+                        resolve("아메리카노가 나왔습니다.");
+                    }  else if( order === "라떼") {
+                        resolve("라떼가 나왔습니다.");
+                    }  else {
+                        reject("죄송합니다 오늘 재료가 모두 소진 되었습니다");
+                    } 
+                }, 2000);
+            }); 
+        }
+
+        // Promise 타입을 소화 시키는 방법 - 1 
+        // 'async' 키워드와 await 를 사용하여 비동기식 코드를 동기식 방법으로 간결하게 소화 시킬 수 있다. 
+        // 주의 - 비동적 방식이다. 
+        async function runOrderCoffee1(order) {
+            console .log("start ......................");
+            try {
+                const result = await orderCoffee(order);
+                console.log(result);
+            } catch(error) {
+                console.log(error);
+            }
+            console .log("end ......................");
+        }
+
+        // 소화시키는 방법 2 -> then() 과 catch() 메서드 활용 
+        function runOrderCoffee2(order) {
+            console .log("start ......................");
+          
+            orderCoffee(order)
+                .then((message) => {
+                    console.log(message);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+            console .log("end ......................");
+        }
+
+    </script>
+
+
+    
+</body>
+</html>

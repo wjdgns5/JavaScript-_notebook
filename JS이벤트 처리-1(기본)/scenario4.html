@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scenario4</title>
+
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            margin: 8px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>요소를 동적으로 삭제하기</h1>        
+    <button onclick="removeItem()">아이템 삭제</button>
+
+    <br>
+    <ul id="myList">
+        <li>아이템 1</li>
+        <li>아이템 2</li>
+        <li>아이템 3</li>
+        <li>아이템 4</li>
+    </ul>
+
+    <script>
+        function removeItem() {
+
+        let list = window.document.querySelector("#myList");
+
+        let lastChild = list.lastElementChild; // <li> 이거 마지막인지 확인
+        
+        if(lastChild != null) {
+            list.removeChild(lastChild);
+        } else {
+            alert("더 이상 자식이 존재하지 않습니다.");
+        }
+    }
+    </script>
+
+    
+</body>
+</html>
